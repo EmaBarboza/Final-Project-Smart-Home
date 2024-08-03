@@ -4,12 +4,14 @@ import com.ironhack.smart_home.model.Door;
 import com.ironhack.smart_home.model.Location;
 import com.ironhack.smart_home.model.Status;
 import com.ironhack.smart_home.repository.DoorRepository;
+//import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+//import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -41,15 +43,9 @@ public class DoorService {
         return doorRepository.save(door);
     }
 
-    public void deleteDoor(int id) {
-        doorRepository.deleteById(id);
-    }
-
-    public Door updateDoor(Door door) {
-        return doorRepository.save(door);
-    }
-
-
+//    public void deleteDoor(int id) {
+//        doorRepository.deleteById(id);
+//    }
 
 
 }

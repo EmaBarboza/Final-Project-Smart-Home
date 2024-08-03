@@ -6,13 +6,15 @@ import com.ironhack.smart_home.repository.OutletRepository;
 import com.ironhack.smart_home.repository.WeendowRepository;
 import com.ironhack.smart_home.service.*;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Component
+@Slf4j
 @RequiredArgsConstructor
 public class DataLoader implements CommandLineRunner {
 
@@ -106,12 +108,22 @@ public class DataLoader implements CommandLineRunner {
         roleService.addRoleToUser("chris", "ROLE_ADMIN");
         roleService.addRoleToUser("chris", "ROLE_USER");
 
+
+//        var outletLilst = List.of(
+//                new Outlet()
+//        )
+
+        List<Outlet> outletList = outletService.getAllOutlets();
+        System.out.println("\nOutlet List: " + outletList);
         List<Outlet> outletOn = outletRepository.findByStatus(Status.ON);
         System.out.println("\n Outles in use: " + outletOn);
 
         List<Weendow> windowOpen = weendowRepository.findByStatus(Status.OPEN);
         System.out.println("\n Windows open: " + windowOpen);
 
+
+        List<Door> doorList = doorService.getAllDoors();
+        System.out.println("\n Door List: " + doorList);
         List<Door> doorOpen = doorRepository.findByStatus(Status.OPEN);
         System.out.println("\n Doors open: " + doorOpen);
 

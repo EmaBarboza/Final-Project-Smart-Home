@@ -3,6 +3,7 @@ package com.ironhack.smart_home.controller;
 import com.ironhack.smart_home.model.User;
 import com.ironhack.smart_home.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.support.BeanDefinitionDsl;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,4 +38,5 @@ public class UserController {
     public void saveUser(@RequestBody User user) {
         userService.saveUser(user);
     }
+
 }

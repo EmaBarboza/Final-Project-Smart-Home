@@ -8,12 +8,20 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
+
 @Repository
 public interface DoorRepository extends JpaRepository<Door, Integer> {
 
     List<Door> findByStatus(Status status);
 
     List<Door> findByLocation(Location location);
+
+    List<Door> findAll();
+
+
+
+
 
 
 
