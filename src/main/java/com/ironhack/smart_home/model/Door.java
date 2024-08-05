@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.UUID;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -15,8 +17,10 @@ import lombok.ToString;
 public class Door {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int doorId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID doorId;
+
+
     private String doorName;
 
     @Enumerated(EnumType.STRING)

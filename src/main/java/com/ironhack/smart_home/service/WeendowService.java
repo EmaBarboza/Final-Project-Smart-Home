@@ -51,4 +51,8 @@ public class WeendowService {
     }
 
 
+    public Weendow create(Weendow weendow) {
+        log.info("Request to create a new window: {}" + weendow);
+        return weendowRepository.save(weendow);
+    }
 }

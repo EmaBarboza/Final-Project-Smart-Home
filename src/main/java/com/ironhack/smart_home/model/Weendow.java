@@ -15,7 +15,7 @@ import lombok.ToString;
 public class Weendow {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private int windowId;
     private String windowName;
 

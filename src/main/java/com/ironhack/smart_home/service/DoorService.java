@@ -4,14 +4,14 @@ import com.ironhack.smart_home.model.Door;
 import com.ironhack.smart_home.model.Location;
 import com.ironhack.smart_home.model.Status;
 import com.ironhack.smart_home.repository.DoorRepository;
-//import jakarta.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-//import java.util.UUID;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -21,17 +21,20 @@ public class DoorService {
     private final DoorRepository doorRepository;
 
     public List<Door> getAllDoors() {
-
+        log.info("List of all doors");
         return doorRepository.findAll();
     }
 
-    public Optional<Door> getDoorById(int id) {
-
-        return doorRepository.findById(id);
-    }
 
     public List<Door> getDoorsByStatus(Status status) {
+        log.info("List of all doors by status");
         return doorRepository.findByStatus(status);
+    }
+
+    @Transactional
+    public Door create(Door door) {
+        log.info("Request to create a new Door : {}", door);
+        return doorRepository.save(door);
     }
 
 
@@ -43,9 +46,6 @@ public class DoorService {
         return doorRepository.save(door);
     }
 
-//    public void deleteDoor(int id) {
-//        doorRepository.deleteById(id);
-//    }
 
 
 }

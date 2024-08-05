@@ -15,7 +15,7 @@ import lombok.ToString;
 public class Outlet {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private int outletId;
     private String outletName;
 

@@ -49,4 +49,9 @@ public class OutletService {
     public Outlet updateOutlet(Outlet outlet) {
         return outletRepository.save(outlet);
     }
+
+    public Outlet create(Outlet outlet) {
+        log.info("Request to create a new outlet : {}", outlet);
+        return outletRepository.save(outlet);
+    }
 }

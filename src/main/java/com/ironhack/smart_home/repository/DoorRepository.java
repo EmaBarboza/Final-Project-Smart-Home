@@ -7,11 +7,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+import java.util.UUID;
 
 
 @Repository
-public interface DoorRepository extends JpaRepository<Door, Integer> {
+public interface DoorRepository extends JpaRepository<Door, UUID> {
 
     List<Door> findByStatus(Status status);
 
