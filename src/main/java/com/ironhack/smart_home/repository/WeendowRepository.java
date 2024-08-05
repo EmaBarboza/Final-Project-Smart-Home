@@ -7,9 +7,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
-public interface WeendowRepository extends JpaRepository<Weendow, Integer> {
+public interface WeendowRepository extends JpaRepository<Weendow, UUID> {
 
     List<Weendow> findByLocation(Location location);
 

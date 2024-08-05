@@ -4,12 +4,14 @@ import com.ironhack.smart_home.model.Location;
 import com.ironhack.smart_home.model.Status;
 import com.ironhack.smart_home.model.Weendow;
 import com.ironhack.smart_home.repository.WeendowRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -22,7 +24,7 @@ public class WeendowService {
         return weendowRepository.findAll();
     }
 
-    public Optional<Weendow> getWindowById(int id) {
+    public Optional<Weendow> getWindowById(UUID id) {
         return weendowRepository.findById(id);
     }
 
@@ -42,7 +44,7 @@ public class WeendowService {
         return weendowRepository.save(weendow);
     }
 
-    public void deleteWindowById(int id) {
+    public void deleteWindowById(UUID id) {
         weendowRepository.deleteById(id);
     }
 
@@ -50,7 +52,7 @@ public class WeendowService {
         return weendowRepository.save(weendow);
     }
 
-
+    @Transactional
     public Weendow create(Weendow weendow) {
         log.info("Request to create a new window: {}" + weendow);
         return weendowRepository.save(weendow);

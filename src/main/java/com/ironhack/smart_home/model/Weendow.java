@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.UUID;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -16,7 +18,7 @@ public class Weendow {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private int windowId;
+    private UUID windowId;
     private String windowName;
 
     @Enumerated(EnumType.STRING)
