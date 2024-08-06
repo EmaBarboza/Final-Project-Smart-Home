@@ -18,8 +18,8 @@ public class Energy {
         double costPerYear = usageKWHPerYear * 0.145;
 
 
-        System.out.println("Computer Energy Audit");
-        System.out.println("You use your computer for " + usageHoursPerYear + " hours per year.");
+        System.out.println("Energy Audit");
+        System.out.println("You use your energy for " + usageHoursPerYear + " hours per year.");
         System.out.println("It will use " + usageWattHoursPerYear + " KWH/year.");
         System.out.println("Which will cost $" + costPerYear + "111 for electricity.");
 

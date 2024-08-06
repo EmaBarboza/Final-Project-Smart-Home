@@ -42,4 +42,10 @@ public class OutletController {
     public Outlet updateOutletName(@PathVariable("id") UUID id, @RequestBody String name) {
         return outletService.updateOutletName(id,name);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteOutlet(@PathVariable("id") UUID id) {
+        outletService.deleteOutlet(id);
+    }
 }

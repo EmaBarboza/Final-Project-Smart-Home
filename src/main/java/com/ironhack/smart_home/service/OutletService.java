@@ -50,6 +50,12 @@ public class OutletService {
         return outletRepository.save(outletToUpdate);
     }
 
+    @Transactional
+    public void deleteOutlet(UUID id) {
+        log.info("Request to delete an outlet : {}", id);
+        outletRepository.deleteById(id);
+    }
+
 
 
     public Optional<Outlet> getOutletById(UUID id) {
@@ -70,9 +76,7 @@ public class OutletService {
         return outletRepository.save(outlet);
     }
 
-    public void deleteOutlet(UUID id) {
-        outletRepository.deleteById(id);
-    }
+
 
     public Outlet updateOutlet(Outlet outlet) {
         return outletRepository.save(outlet);

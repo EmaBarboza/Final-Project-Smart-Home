@@ -42,4 +42,10 @@ public class WeendowController {
     public Weendow updateWeendow(@PathVariable("id") UUID id, @RequestBody String name) {
         return weendowService.updateWeendowName(id, name);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteWindow(@PathVariable("id") UUID id) {
+        weendowService.deleteWeendow(id);
+    }
 }

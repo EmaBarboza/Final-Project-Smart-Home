@@ -4,6 +4,7 @@ import com.ironhack.smart_home.model.Door;
 import com.ironhack.smart_home.model.Status;
 import com.ironhack.smart_home.service.DoorService;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 import lombok.extern.apachecommons.CommonsLog;
@@ -46,6 +47,12 @@ public class DoorController {
     @PatchMapping("/{id}")
     public Door updateDoorName(@PathVariable("id")UUID id, @RequestBody String name) {
         return doorService.updateDoorName(id, name);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteDoor(@PathVariable("id")UUID id) {
+        doorService.deleteDoor(id);
     }
 
 
