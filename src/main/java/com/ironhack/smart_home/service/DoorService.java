@@ -52,6 +52,11 @@ public class DoorService {
         return doorRepository.save(doorToUpdate);
     }
 
+    @Transactional
+    public void deleteDoor(UUID id) {
+        log.info("Request to delete a Door : {}", id);
+        doorRepository.deleteById(id);
+    }
 
 
 

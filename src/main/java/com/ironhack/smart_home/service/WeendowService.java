@@ -73,4 +73,10 @@ public class WeendowService {
         weendowToUpdate.setWindowName(name);
         return weendowRepository.save(weendowToUpdate);
     }
+
+    @Transactional
+    public void  deleteWeendow(UUID id) {
+        log.info("Request to delete a window: {}" + id);
+        weendowRepository.deleteById(id);
+    }
 }
