@@ -10,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -38,10 +37,18 @@ public class DoorService {
     }
 
     @Transactional
-    public Door updateDoor(Door door, UUID id) {
+    public Door updateDoor(UUID id, Door door) {
         log.info("Request to update a Door : {}", door);
         var doorToUpdate = doorRepository.findById(id).orElseThrow();
         doorToUpdate.setStatus(door.getStatus());
+        return doorRepository.save(doorToUpdate);
+    }
+
+    @Transactional
+    public Door updateDoorName(UUID id, String name) {
+        log.info("Request to update a Door by name : {}", name);
+        var doorToUpdate = doorRepository.findById(id).orElseThrow();
+        doorToUpdate.setDoorName(name);
         return doorRepository.save(doorToUpdate);
     }
 

@@ -42,6 +42,13 @@ public class OutletService {
         return outletRepository.save(outletToUpdate);
     }
 
+    @Transactional
+    public Outlet updateOutletName(UUID id, String name) {
+        log.info("Request to update an outlet : {}", name);
+        var outletToUpdate = outletRepository.findById(id).orElseThrow();
+        outletToUpdate.setOutletName(name);
+        return outletRepository.save(outletToUpdate);
+    }
 
 
 

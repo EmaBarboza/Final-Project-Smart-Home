@@ -37,4 +37,9 @@ public class WeendowController {
     public Weendow updateWindow(@PathVariable("id") UUID id, @RequestBody Weendow weendow) {
         return weendowService.updateWeendow(weendow, id);
     }
+
+    @PatchMapping("/{id}")
+    public Weendow updateWeendow(@PathVariable("id") UUID id, @RequestBody String name) {
+        return weendowService.updateWeendowName(id, name);
+    }
 }

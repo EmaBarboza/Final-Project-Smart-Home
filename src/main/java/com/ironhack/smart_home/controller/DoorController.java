@@ -40,7 +40,12 @@ public class DoorController {
 
     @PutMapping("/{id}")
     public Door updateDoor(@PathVariable("id")UUID id, @RequestBody Door door) {
-        return doorService.updateDoor(door, id);
+        return doorService.updateDoor(id, door);
+    }
+
+    @PatchMapping("/{id}")
+    public Door updateDoorName(@PathVariable("id")UUID id, @RequestBody String name) {
+        return doorService.updateDoorName(id, name);
     }
 
 

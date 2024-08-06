@@ -37,4 +37,9 @@ public class OutletController {
     public Outlet upDateOutlet(@PathVariable("id") UUID id, @RequestBody Outlet outlet) {
         return outletService.updateOutlet(outlet, id);
     }
+
+    @PatchMapping("/{id}")
+    public Outlet updateOutletName(@PathVariable("id") UUID id, @RequestBody String name) {
+        return outletService.updateOutletName(id,name);
+    }
 }
