@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @CommonsLog
@@ -35,6 +36,11 @@ public class DoorController {
     @ResponseStatus(HttpStatus.CREATED)
     public Door createDoor(@RequestBody Door door) {
         return doorService.create(door);
+    }
+
+    @PutMapping("/{id}")
+    public Door updateDoor(@PathVariable("id")UUID id, @RequestBody Door door) {
+        return doorService.updateDoor(door, id);
     }
 
 

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("window")
@@ -30,5 +31,10 @@ public class WeendowController {
     @ResponseStatus(HttpStatus.CREATED)
     public Weendow createWindow(@RequestBody Weendow weendow) {
         return weendowService.create(weendow);
+    }
+
+    @PutMapping("/{id}")
+    public Weendow updateWindow(@PathVariable("id") UUID id, @RequestBody Weendow weendow) {
+        return weendowService.updateWeendow(weendow, id);
     }
 }

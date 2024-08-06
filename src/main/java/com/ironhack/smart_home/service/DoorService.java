@@ -37,6 +37,16 @@ public class DoorService {
         return doorRepository.save(door);
     }
 
+    @Transactional
+    public Door updateDoor(Door door, UUID id) {
+        log.info("Request to update a Door : {}", door);
+        var doorToUpdate = doorRepository.findById(id).orElseThrow();
+        doorToUpdate.setStatus(door.getStatus());
+        return doorRepository.save(doorToUpdate);
+    }
+
+
+
 
     public List<Door> getDoorsByLocation(Location location) {
         return doorRepository.findByLocation(location);

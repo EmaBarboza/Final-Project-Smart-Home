@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/outlet")
@@ -30,5 +31,10 @@ public class OutletController {
     @ResponseStatus(HttpStatus.CREATED)
     public Outlet createOutlet(@RequestBody Outlet outlet) {
         return outletService.create(outlet);
+    }
+
+    @PutMapping("/{id}")
+    public Outlet upDateOutlet(@PathVariable("id") UUID id, @RequestBody Outlet outlet) {
+        return outletService.updateOutlet(outlet, id);
     }
 }

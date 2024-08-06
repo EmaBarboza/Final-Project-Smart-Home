@@ -57,4 +57,12 @@ public class WeendowService {
         log.info("Request to create a new window: {}" + weendow);
         return weendowRepository.save(weendow);
     }
+
+    @Transactional
+    public Weendow updateWeendow(Weendow weendow, UUID id) {
+        log.info("Request to update a window: {}" + weendow);
+        var weendowToUpdate = weendowRepository.findById(id).orElseThrow();
+        weendowToUpdate.setStatus(weendow.getStatus());
+        return weendowRepository.save(weendowToUpdate);
+    }
 }
